@@ -1,0 +1,175 @@
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usepackage{ifthen}
+\usepackage{tikz-3dplot}
+
+\newlength{\myl}
+\setlength{\myl}{4mm}
+
+\newlength{\myh}
+\setlength{\myh}{0.816496580927726\myl}
+
+\newlength{\myg}
+\setlength{\myg}{0.8660254037844386\myl}
+
+\newlength{\myr}
+\setlength{\myr}{0.2886751345948\myl}
+
+\newcommand\lpos{0,0,0}
+\newcommand\rpos{\myl,0,0}
+\newcommand\tpos{0.5\myl,\myg,0}
+\newcommand\upos{0.5\myl,\myr,\myh}
+
+\newcommand\lrpos{0.5\myl,0,0}
+\newcommand\ltpos{0.25\myl,0.5\myg,0}
+\newcommand\rtpos{0.75\myl,0.5\myg,0}
+\newcommand\lupos{0.25\myl,0.5\myr,0.5\myh}
+\newcommand\rupos{0.75\myl,0.5\myr,0.5\myh}
+\newcommand\tupos{0.5\myl,0.5\myg+0.5\myr,0.5\myh}
+
+\newcommand\lrtpos{0.5\myl,\myr,0}
+\newcommand\lrupos{0.5\myl,0.33333\myr,0.33333\myh}
+\newcommand\rtupos{0.666667\myl,0.33333\myg+0.33333\myr,0.33333\myh}
+\newcommand\ltupos{0.33333\myl,0.33333\myg+0.33333\myr,0.33333\myh}
+
+\newcommand\mpos{0.5\myl,0.5\myr+0.1666667\myg,0.25\myh}
+
+\def\cr{3.27317}
+\def\cs{5.6693}%{4.879356552145268}%{1.7213259316477405}
+\huge
+\begin{document}
+\tdplotsetmaincoords{70}{38}
+\begin{tikzpicture}[tdplot_main_coords]    
+    \coordinate (l) at (\lpos);
+    \coordinate (r) at (\rpos);
+    \coordinate (t) at (\tpos);
+    \coordinate (u) at (\upos);
+    
+%    \path (l) -- coordinate[midway] (lr) (r);
+    \coordinate (lr) at (\lrpos);
+%    \path (l) -- coordinate[midway] (lt) (t);
+    \coordinate (lt) at (\ltpos);
+%    \path (l) -- coordinate[midway] (lu) (u);
+    \coordinate (lu) at (\lupos);
+%    \path (r) -- coordinate[midway] (rt) (t);
+    \coordinate (rt) at (\rtpos);
+%    \path (r) -- coordinate[midway] (ru) (u);
+    \coordinate (ru) at (\rupos);    
+%    \path (t) -- coordinate[midway] (tu) (u);
+    \coordinate (tu) at (\tupos);
+
+%    \path[name path=linelru] (l) -- (rt);
+%    \path[name path=linerlu] (r) -- (lt);
+%	\path [name intersections={of=linelru and linerlu, by=lrt}];
+	\coordinate (lrt) at (\lrtpos);
+	
+%    \path[name path=linelru] (l) -- (ru);
+%    \path[name path=linerlu] (r) -- (lu);
+%	\path [name intersections={of=linelru and linerlu, by=lru}];		
+	\coordinate (lru) at (\lrupos);
+
+%	\path[name path=linelru] (r) -- (tu);
+%    \path[name path=linerlu] (t) -- (ru);
+%	\path [name intersections={of=linelru and linerlu, by=rtu}];		
+	\coordinate (rtu) at (\rtupos);
+
+%	\path[name path=linelru] (l) -- (tu);
+%    \path[name path=linerlu] (t) -- (lu);
+%	\path [name intersections={of=linelru and linerlu, by=ltu}];		
+	\coordinate (ltu) at (\ltupos);
+
+%	\path[name path=linelru] (u) -- (lrt);
+%    \path[name path=linerlu] (t) -- (lru);
+%	\path [name intersections={of=linelru and linerlu, by=m}];		
+	\coordinate (m) at (\mpos);
+
+
+% Main tetrahedron
+    \draw[ultra thick, black] (l) -- (t); 
+    \draw[ultra thick, black] (l) -- (r);
+    \draw[ultra thick, black] (r) -- (t);  
+    \draw[ultra thick, black] (l) -- (u);
+    \draw[ultra thick, black] (t) -- (u);
+
+   
+% Two back faces
+    \draw[ultra thick, Green] (t) -- (lu);
+    \draw[ultra thick, Green] (l) -- (tu);
+    \draw[ultra thick, Green] (u) -- (lt);
+
+	\tdplotsetrotatedcoords{-30}{109.4712}{0}
+	\tdplotdrawarc[ultra thick, Green, tdplot_rotated_coords]{(ltu)}{\cr}{0}{360}{}{}
+	
+    \draw[ultra thick, blue] (l) -- (rt);
+    \draw[ultra thick, blue] (r) -- (lt);
+    \draw[ultra thick, blue] (t) -- (lr);
+
+	\tdplotdrawarc[ultra thick, blue]{(lrt)}{\cr}{0}{360}{}{}
+
+
+% Interior lines
+	\draw[ultra thick, lightgray] (lru) -- (t);
+	\draw[ultra thick, lightgray] (lrt) -- (u);
+	\draw[ultra thick, lightgray] (ltu) -- (r);
+	\draw[ultra thick, lightgray] (rtu) -- (l);
+
+	\draw[ultra thick, lightgray] (lr) -- (tu);
+	\draw[ultra thick, lightgray] (rt) -- (lu);
+	\draw[ultra thick, lightgray] (ru) -- (lt);
+
+
+
+% Two front faces
+    \draw[ultra thick, red] (r) -- (lu);
+    \draw[ultra thick, red] (l) -- (ru);
+    \draw[ultra thick, red] (u) -- (lr);
+
+	\tdplotsetrotatedcoords{90}{-70.5288}{0}%{-70.5288}{0}%{109.4822}{0}
+	\tdplotdrawarc[ultra thick, red, tdplot_rotated_coords]{(lru)}{\cr}{0}{360}{}{}
+
+
+    \draw[ultra thick, Dandelion] (r) -- (tu);
+    \draw[ultra thick, Dandelion] (t) -- (ru);
+    \draw[ultra thick, Dandelion] (u) -- (rt);
+
+	\tdplotsetrotatedcoords{-150}{109.4712}{0}%{-70.5288}{0}%{109.4822}{0}
+	\tdplotdrawarc[ultra thick, Dandelion, tdplot_rotated_coords]{(rtu)}{\cr}{0}{360}{}{}
+
+
+    \draw[ultra thick, black] (r) -- (u);
+
+
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5mm] () at (l) {};%{\textcolor{white}{l}};  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=4mm] () at (t) {};%{\textcolor{white}{t}};
+    	\node[draw, circle, fill, inner sep = 0mm, minimum size=7mm] () at (r) {};%{\textcolor{white}{r}};    
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5mm] () at (u) {};%{\textcolor{white}{u}};  
+
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=4.5mm] () at (lt) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5mm] () at (lu) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=4.5mm] () at (tu) {}  ; 
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=6mm] () at (lr) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5.5mm] () at (rt) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=6mm] () at (ru) {}  ;  
+
+	 
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=4.6666mm] () at (ltu) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5.3333mm] () at (lrt) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5.6666mm] () at (lru) {}  ;  
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5.3333mm] () at (rtu) {}  ;  
+
+	\node[draw, circle, fill, inner sep = 0mm, minimum size=5.25mm] () at (m) {}  ;  
+
+
+%   
+%
+%
+%
+%	
+%
+%	 
+
+    \end{tikzpicture}
+\end{document}

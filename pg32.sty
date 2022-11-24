@@ -67,6 +67,86 @@
 	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/weight.png}};
 }}
 
+\tikzset{flag/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/flag.png}};
+}}
+
+\tikzset{pingpong/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/pingpong.png}};
+}}
+
+\tikzset{female/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/female.png}};
+}}
+
+\tikzset{buoy/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/buoy.png}};
+}}
+
+\tikzset{male/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/male.png}};
+}}
+
+\tikzset{bullhorn/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/bullhorn.png}};
+}}
+
+\tikzset{headphones/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/headphones.png}};
+}}
+
+\tikzset{balloon/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/balloon.png}};
+}}
+
+\tikzset{lightning/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/lightning.png}};
+}}
+
+\tikzset{suitcase/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/suitcase.png}};
+}}
+
+\tikzset{sailboat/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/sailboat.png}};
+}}
+
+\tikzset{fence/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/fence.png}};
+}}
+
+\tikzset{asterisk/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/asterisk.png}};
+}}
+
+\tikzset{battery/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/battery.png}};
+}}
+
+\tikzset{phone/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/phone.png}};
+}}
+
+\tikzset{luigi/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/luigi.png}};
+}}
+
+\tikzset{music/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/music.png}};
+}}
+
+\tikzset{wifi/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/wifi.png}};
+}}
+
+\tikzset{lock/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/lock.png}};
+}}
+
+\tikzset{snowflake/.pic={
+	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/snowflake.png}};
+}}
+
 
 \def\shift{0.8333333333}
 \def\scale{0.1666666667}
@@ -83,6 +163,49 @@
 	\path[fill=offwhite] (-0.0625,-0.0625) rectangle (2.5625in, 3.5625in); 
 	
 	\clip (0,0) (-0.0625,-0.0625) rectangle (2.5625in, 3.5625in);
+	
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n1) {#1};
+	
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n2) {#2};
+
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n3) {#3};
+
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n4) {#4};
+
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n5) {#5};
+
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n6) {#6};
+
+	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n7) {#7};
+}}}
+
+\tikzset{pics/icons2/.style n args={7}{code={
+	\node (n1) at (1.25in, 0.5in) {};
+	\node (n2) at (0.5in, 1.125in) {};
+	\node (n3) at (2.0in, 1.125in) {};
+	\node (n4) at (1.25in, 1.75in) {};
+	\node (n5) at (0.5in, 2.375in) {};
+	\node (n6) at (2.0in, 2.375in) {};
+	\node (n7) at (1.25in, 3.0in) {};
+
+
+	\path[fill=offwhite, draw] (0,0) rectangle (2.5in, 3.5in);
+	
+	\clip (0,0) rectangle (2.5in, 3.5);
 
 	\pgfmathsetmacro{\iconscale}{\shift + rand*\scale};
 	\pgfmathsetmacro{\iconrotate}{rand*180};
@@ -112,6 +235,48 @@
 	\pgfmathsetmacro{\iconrotate}{rand*180};
 	\pic[scale=\iconscale, rotate=\iconrotate] () at (n7) {#7};
 }}}
+
+
+\tikzset{pics/icons3/.style n args={7}{code={
+	\node (n1) at (1.25in, 0.5in) {};
+	\node (n2) at (0.5in, 1.125in) {};
+	\node (n3) at (2.0in, 1.125in) {};
+	\node (n4) at (1.25in, 1.75in) {};
+	\node (n5) at (0.5in, 2.375in) {};
+	\node (n6) at (2.0in, 2.375in) {};
+	\node (n7) at (1.25in, 3.0in) {};
+
+	\path[fill=offwhite] (-0.0625,-0.0625) rectangle (2.5625in, 3.5625in); 
+	
+	\clip (0,0) (-0.0625,-0.0625) rectangle (2.5625in, 3.5625in);
+
+	\pgfmathsetmacro{\iconscale}{0.75};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n1) {#1};
+	
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n2) {#2};
+
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n3) {#3};
+
+	\pgfmathsetmacro{\iconscale}{0.75};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n4) {#4};
+
+	\pgfmathsetmacro{\iconscale}{0.75};
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n5) {#5};
+
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n6) {#6};
+
+	\pgfmathsetmacro{\iconrotate}{rand*180};
+	\pic[scale=\iconscale, rotate=\iconrotate] () at (n7) {#7};
+}}}
+
+
+
 
 \tikzset{cardback2/.pic={
 	\path[fill=offgray] (0,0) rectangle (2.5in, 3.5in);

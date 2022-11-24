@@ -1,0 +1,198 @@
+\documentclass[a4paper, oneside]{article}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage[margin=0.125in]{geometry}
+\usepackage[skip=0pt]{parskip}
+
+\usepackage{pg32}
+\usepackage{pgfplots}
+\pgfmathsetseed{6}%{11}%{1}
+\pgfplotsset{compat=1.17} 
+
+\usepackage{fontspec}
+\setmainfont{card characters}
+
+\pagestyle{empty}
+
+%lines_points = [{0, 2, 5},
+% {0, 1, 4},
+% {1, 2, 8},
+% {0, 8, 10},
+% {1, 5, 10},
+% {2, 4, 10},
+% {4, 5, 8},
+% {0, 3, 6},
+% {2, 3, 9},
+% {0, 9, 11},
+% {2, 6, 11},
+% {3, 5, 11},
+% {5, 6, 9},
+% {1, 3, 7},
+% {0, 7, 12},
+% {1, 6, 12},
+% {3, 4, 12},
+% {4, 6, 7},
+% {1, 9, 13},
+% {2, 7, 13},
+% {3, 8, 13},
+% {7, 8, 9},
+% {0, 13, 14},
+% {1, 11, 14},
+% {4, 9, 14},
+% {4, 11, 13},
+% {2, 12, 14},
+% {5, 7, 14},
+% {5, 12, 13},
+% {6, 8, 14},
+% {3, 10, 14},
+% {6, 10, 13},
+% {8, 11, 12},
+% {7, 10, 11},
+% {9, 10, 12}]
+
+%planes_lines = [{0, 1, 2, 3, 4, 5, 6},
+% {0, 7, 8, 9, 10, 11, 12},
+% {1, 7, 13, 14, 15, 16, 17},
+% {2, 8, 13, 18, 19, 20, 21},
+% {1, 9, 18, 22, 23, 24, 25},
+% {0, 14, 19, 22, 26, 27, 28},
+% {3, 7, 20, 22, 29, 30, 31},
+% {2, 10, 15, 23, 26, 29, 32},
+% {4, 11, 13, 23, 27, 30, 33},
+% {5, 8, 16, 24, 26, 30, 34},
+% {3, 9, 14, 21, 32, 33, 34},
+% {4, 12, 15, 18, 28, 31, 34},
+% {5, 10, 17, 19, 25, 31, 33},
+% {6, 11, 16, 20, 25, 28, 32},
+% {6, 12, 17, 21, 24, 27, 29}]
+ 
+%icons = ['beaker',
+% 'balloon',
+% 'bullhorn',
+% 'male',
+% 'storm',
+% 'weight',
+% 'buoy',
+% 'tie',
+% 'wifi',
+% 'pingpong',
+% 'fence',
+% 'battery',
+% 'umbrella',
+% 'recycling',
+% 'music',
+% 'sailboat',
+% 'lightning',
+% 'flag',
+% 'luigi',
+% 'heart',
+% 'snowflake',
+% 'leaf',
+% 'bullseye',
+% 'van',
+% 'lock',
+% 'headphones',
+% 'earth',
+% 'bicycle',
+% 'microscope',
+% 'asterisk',
+% 'volleyball',
+% 'suitcase',
+% 'female',
+% 'sun',
+% 'phone']
+ 
+\newlength{\offset}
+\setlength{\offset}{0.0in}
+
+\begin{document}
+\phantom{a}
+\begin{center}
+\begin{tikzpicture}[x=1in, y=1in]
+\path (0,3.5in) -- (0, 3.5in + \offset);
+\pic () at (0in, 0in) {icons={beaker}{balloon}{bullhorn}{male}{storm}{weight}{buoy}};
+\pic () at (2.6825in, 0in) {icons={pingpong}{tie}{wifi}{beaker}{fence}{battery}{umbrella}};
+\pic () at (5.375in, 0in) {icons={balloon}{tie}{recycling}{music}{sailboat}{lightning}{flag}};
+
+\pic () at (0in, -3.6875in) {icons={wifi}{heart}{recycling}{leaf}{bullhorn}{snowflake}{luigi}};
+\pic () at (2.6825in, -3.6875in) {icons={balloon}{pingpong}{lock}{bullseye}{van}{luigi}{headphones}};
+\pic () at (5.375in, -3.6875in) {icons={beaker}{bullseye}{heart}{earth}{music}{bicycle}{microscope}};
+
+\pic () at (0in, -7.375in) {icons={asterisk}{tie}{bullseye}{snowflake}{male}{volleyball}{suitcase}};
+\pic () at (2.6825in, -7.375in) {icons={female}{bullhorn}{fence}{sailboat}{van}{earth}{asterisk}};
+\pic () at (5.375in, -7.375in) {icons={sun}{storm}{battery}{volleyball}{van}{bicycle}{recycling}};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+\phantom{a}
+\begin{center}
+%\begin{tikzpicture}[x=1in, y=1in]
+%\pic () at (0in, 0in) {icons2={music}{balloon}{flag}{sailboat}{recycling}{lightning}{tie}};
+%\pic () at (2.6825in, 0in) {icons2={wifi}{battery}{tie}{fence}{pingpong}{umbrella}{beaker}};
+%\pic () at (5.375in, 0in) {icons2={weight}{storm}{male}{balloon}{beaker}{bullhorn}{buoy}};
+%
+%\pic () at (0in, -3.6875in) {icons2={bicycle}{beaker}{bullseye}{music}{microscope}{earth}{heart}};
+%\pic () at (2.6825in, -3.6875in) {icons2={van}{balloon}{pingpong}{headphones}{luigi}{bullseye}{lock}};
+%\pic () at (5.375in, -3.6875in) {icons2={leaf}{wifi}{heart}{luigi}{snowflake}{recycling}{bullhorn}};
+%
+%\pic () at (0in, -7.375in) {icons2={volleyball}{battery}{bicycle}{recycling}{van}{sun}{storm}};
+%\pic () at (2.6825in, -7.375in) {icons2={fence}{earth}{sailboat}{female}{bullhorn}{asterisk}{van}};
+%\pic () at (5.375in, -7.375in) {icons2={bullseye}{male}{snowflake}{suitcase}{asterisk}{volleyball}{tie}};
+%\end{tikzpicture}
+\begin{tikzpicture}[x=1in, y=1in]
+\pic () at (0in, 0in) {cardback2};
+\pic () at (2.6825in, 0in) {cardback2};
+\pic () at (5.375in, 0in) {cardback2};
+
+\pic () at (0in, -3.6875in) {cardback2};
+\pic () at (2.6825in, -3.6875in) {cardback2};
+\pic () at (5.375in, -3.6875in) {cardback2};
+
+\pic () at (0in, -7.375in) {cardback2};
+\pic () at (2.6825in, -7.375in) {cardback2};
+\pic () at (5.375in, -7.375in) {cardback2};
+\end{tikzpicture}
+\end{center}
+
+
+\newpage
+\phantom{a}
+\begin{center}
+\begin{tikzpicture}[x=1in, y=1in]
+\path (0,3.5in) -- (0, 3.5in + \offset);
+\pic () at (0in, 0in) {icons={suitcase}{storm}{umbrella}{phone}{luigi}{microscope}{sailboat}};
+\pic () at (2.6825in, 0in) {icons={male}{sun}{phone}{female}{music}{pingpong}{leaf}};
+\pic () at (5.375in, 0in) {icons={lock}{phone}{weight}{wifi}{lightning}{earth}{volleyball}};
+
+\pic () at (0in, -3.6875in) {icons={umbrella}{flag}{bicycle}{buoy}{lock}{leaf}{asterisk}};
+\pic () at (2.6825in, -3.6875in) {icons={female}{buoy}{battery}{lightning}{snowflake}{headphones}{microscope}};
+\pic () at (5.375in, -3.6875in) {icons={flag}{heart}{fence}{sun}{weight}{headphones}{suitcase}};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+\phantom{a}
+\begin{center}
+%\begin{tikzpicture}[x=1in, y=1in]
+%\pic () at (0in, 0in) {icons2={weight}{wifi}{earth}{lock}{volleyball}{lightning}{phone}};
+%\pic () at (2.6825in, 0in) {icons2={music}{sun}{pingpong}{phone}{female}{male}{leaf}};
+%\pic () at (5.375in, 0in) {icons2={umbrella}{luigi}{phone}{sailboat}{suitcase}{storm}{microscope}};
+%
+%\pic () at (0in, -3.6875in) {icons2={suitcase}{weight}{sun}{flag}{fence}{headphones}{heart}};
+%\pic () at (2.6825in, -3.6875in) {icons2={female}{microscope}{battery}{snowflake}{lightning}{headphones}{buoy}};
+%\pic () at (5.375in, -3.6875in) {icons2={bicycle}{asterisk}{leaf}{flag}{buoy}{umbrella}{lock}};
+%\end{tikzpicture}
+\begin{tikzpicture}[x=1in, y=1in]
+\pic () at (0in, 0in) {cardback2};
+\pic () at (2.6825in, 0in) {cardback2};
+\pic () at (5.375in, 0in) {cardback2};
+
+\pic () at (0in, -3.6875in) {cardback2};
+\pic () at (2.6825in, -3.6875in) {cardback2};
+\pic () at (5.375in, -3.6875in) {cardback2};
+\end{tikzpicture}
+\end{center}
+
+\end{document}
