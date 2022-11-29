@@ -147,6 +147,10 @@
 	\node[transform shape] at (0,0) {\includegraphics[scale=10]{Images/Icons/snowflake.png}};
 }}
 
+\tikzset{token/.pic = {
+\node[draw, circle, minimum size=1.5in, inner sep=0pt, fill=offwhite] () at (0,0) {};
+\pic[scale=1.15] () at (0,0) {#1};
+}}
 
 \def\shift{0.8333333333}
 \def\scale{0.1666666667}
