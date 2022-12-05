@@ -86,3 +86,8 @@ Your solution is _valid_ if all moves are legal and the solution delivers the ac
 If, while demonstrating your solution, you make a mistake or discover that your solution is invalid, you should return the pawns to their original locations as indicated by the placeholder tokens.
 
 If your solution is valid, then you should update the locations of the placeholder tokens by placing them onto the same cards as their corresponding pawns.
+
+### Fun Facts
+The design of the cards used in Pivot Pawns is derived from the geometry of the three-dimensional projective space over the finite field with two elements. This space is known as PG(3,2).
+
+One way to understand PG(3,2) is as a tetrahedron with points at each vertex, the edge centres, the face centres, and the body centre. In Pivot Pawns, each card corresponds to a plane of PG(3,2) that is isomorphic to the Fano Plane (PG(2,2)). Each icon corresponds to a line in PG(3,2). 

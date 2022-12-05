@@ -15,6 +15,11 @@
 \usepackage{array}
 \usepackage{afterpage}
 
+\usepackage{pg32}
+\usepackage{contour}
+\contournumber{32}
+\usepackage[letterspace=50]{microtype}
+
 \usepackage[hidelinks]{hyperref} % Add hyperlinks to the pdf file. This should usually be the last package loaded before \begin{document}
 
 \setmainfont{TeX Gyre Schola}
@@ -62,6 +67,7 @@
 
 \version{0.1}
 \begin{document}
+\color{offblack}
 {%
 \thispagestyle{empty}
 		\enlargethispage{3.5\baselineskip} % Move the bottom line (author and date) down a bit
@@ -73,18 +79,19 @@
 
 \vspace{0.5cm}
 
-\setmainfont[Scale=3.0]{Tex Gyre Schola}
+\setmainfont[Scale=2.9]{Tex Gyre Schola}
 \Huge
-Pivot\hspace{1.71cm}
+\contour{offblack}{\textcolor{offblue}{\textls{Pivot}}}\hspace{1.65cm}
 
 \vspace{0.2cm}
 
-Pawns
+\contour{offblack}{\textcolor{offgreen}{\textls{Pawns}}}
 \vfill{}
-%\includegraphics[scale=0.375]{Images/triceratops_skull_cropped.png}
-%\includegraphics[scale=1.0]{Images/triceratops_skull_cropped2.png}
+
+\scalebox{-1}[1]{\includegraphics[scale=0.0625]{Images/pg32_tetrahedron.png}}
+\vfill{}
 \tiny
-Designed by Michael Purcell\hspace*{0.86cm}
+Designed by Michael Purcell\hspace*{1.5cm}
 \end{center}
 }%
 %\newpage
@@ -152,7 +159,7 @@ The game ends after you have played fifteen rounds. Whoever has collected the mo
 \subsection*{Moving the Pawns}
 During the game, you will move the pawns around the tableau. When a pawn is placed onto a card, that card is \emph{occupied} by that pawn.
 
-In most cases, you may not move a pawn onto a card on which has a centre icon of the same colour as that pawn.
+Unless it is the target card for a given round, you may not move a pawn onto a card which has a centre icon of the same colour as that pawn.
 
 Crucially, however, you may move any pawn onto the target card during a given round. In fact, in order to collect the target token in each round, you must move the pawn that matches the colour of the centre icon of the target card onto that card.
 
@@ -212,6 +219,13 @@ If their proposed solution is valid, then that player \emph{succeeds} and should
   \item If two or more players have the same bid, then the bids should be resolved in the order in which they were were made.
   \end{itemize}
 
+\vfill
+\hrulefill
+\subsection*{About the Cover}
+The design of the cards used in Pivot Pawns is derived from the geometry of the three-dimensional projective space over the finite field with two elements. This space is known as PG(3,2). 
+
+One way to understand PG(3,2) is as a tetrahedron like the one depicted on the cover of this rulebook. 
+
 \newpage
 
 \subsection*{Demonstrating a Solution}
@@ -221,7 +235,7 @@ Your solution is \emph{valid} if all moves are legal and the solution delivers t
 
 If, while demonstrating your solution, you make a mistake or discover that your solution is invalid, you should return the pawns to their original locations as indicated by the placeholder tokens.
 
-If your solution is valid, then you should update the locations of the the placeholder tokens by placing them onto the same cards as their corresponding pawns.
+If your solution is valid, then you should update the locations of the placeholder tokens by placing them on the same cards as their corresponding pawns.
 
 
 \vfill
