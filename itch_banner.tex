@@ -1,0 +1,16 @@
+\documentclass{standalone}
+
+\usepackage{pg32}
+\usepackage{fontspec}
+\setmainfont{Tex Gyre Schola}
+
+\usepackage{contour}
+\contournumber{32}
+
+\usepackage[letterspace=50]{microtype}
+
+\begin{document}
+\begin{tikzpicture}
+\node[fill=offwhite] () at (0,0) {\contour{offblack}{\textcolor{offblue}{\textls{Pivot}}} \ \contour{offblack}{\textcolor{offgreen}{\textls{Pawns}}}};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass{standalone}
+
+\usepackage{pg32}
+\usepackage{fontspec}
+\setmainfont[Scale=10.0]{TeX Gyre Schola}
+
+\usepackage{contour}
+\contournumber{32}
+\usepackage[letterspace=50]{microtype}
+
+\begin{document}
+\begin{tikzpicture}
+\clip (-6.3cm, -5cm) rectangle (6.3cm, 5cm);
+
+\pic[scale=0.5, transform shape] () at (-7.4cm, -6.75cm) {icons={beaker}{balloon}{bullhorn}{male}{storm}{weight}{buoy}};
+\pic[scale=0.5, transform shape] () at (-4.25cm, -6.75cm) {icons={pingpong}{tie}{wifi}{beaker}{fence}{battery}{umbrella}};
+\pic[scale=0.5, transform shape] () at (-1.1cm, -6.75cm) {icons={balloon}{tie}{recycling}{music}{sailboat}{lightning}{flag}};
+\pic[scale=0.5, transform shape] () at (2.05cm, -6.75cm) {icons={wifi}{heart}{recycling}{leaf}{bullhorn}{snowflake}{luigi}};
+\pic[scale=0.5, transform shape] () at (5.2cm, -6.75cm) {icons={balloon}{pingpong}{lock}{bullseye}{van}{luigi}{headphones}};
+
+\pic[scale=0.5, transform shape] () at (-7.4cm, -2.25cm) {icons={beaker}{bullseye}{heart}{earth}{music}{bicycle}{microscope}};
+\pic[scale=0.5, transform shape] () at (-4.25cm, -2.25cm) {icons={snowflake}{tie}{bullseye}{asterisk}{male}{volleyball}{suitcase}};
+\pic[scale=0.5, transform shape] () at (-1.1cm, -2.25cm) {icons={female}{bullhorn}{fence}{sailboat}{van}{earth}{asterisk}};
+\pic[scale=0.5, transform shape] () at (2.05cm, -2.25cm) {icons={sun}{storm}{battery}{volleyball}{van}{bicycle}{recycling}};
+\pic[scale=0.5, transform shape] () at (5.2cm, -2.25cm) {icons={suitcase}{umbrella}{phone}{storm}{luigi}{microscope}{sailboat}};
+
+\pic[scale=0.5, transform shape] () at (-7.4cm, 2.25cm) {icons={male}{sun}{phone}{female}{music}{pingpong}{leaf}};
+\pic[scale=0.5, transform shape] () at (-4.25cm, 2.25cm) {icons={lock}{phone}{weight}{wifi}{lightning}{earth}{volleyball}};
+\pic[scale=0.5, transform shape] () at (-1.1cm, 2.25cm) {icons={umbrella}{flag}{bicycle}{buoy}{lock}{leaf}{asterisk}};
+\pic[scale=0.5, transform shape] () at (2.05cm, 2.25cm) {icons={female}{buoy}{battery}{lightning}{snowflake}{headphones}{microscope}};
+\pic[scale=0.5, transform shape] () at (5.2cm, 2.25cm) {icons={flag}{heart}{fence}{sun}{weight}{headphones}{suitcase}};
+
+\path[fill=white, opacity=0.4] (-6.3cm, -5cm) rectangle (6.3cm, 5cm);
+
+\node (n1) at (-1cm,1.5cm) {\contour{offblack}{\textcolor{offblue}{\textls{Pivot}}}};
+\path (n1.west) --++ (0, -3cm) node[anchor=west] {\contour{offblack}{\textcolor{offgreen}{\textls{Pawns}}}};
+
+%\setmainfont[Scale=2.0]{Tex Gyre Schola}
+%\node () at (-0.325cm,-4cm) {\contour{offblack}{\textcolor{offred}{\textls{Designed by Michael Purcell}}}};
+
+\end{tikzpicture}
+\end{document}
